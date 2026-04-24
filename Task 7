@@ -1,0 +1,62 @@
+expenses = []
+
+def add_expense():
+    name = input("Enter expense name: ")
+    amount = float(input("Enter amount: "))
+    
+    expenses.append({"name": name, "amount": amount})
+    print("Expense added successfully!\n")
+
+def view_expenses():
+    if not expenses:
+        print("No expenses recorded.\n")
+        return
+    
+    print("\nYour Expenses:")
+    for i, exp in enumerate(expenses, start=1):
+        print(f"{i}. {exp['name']} - ₹{exp['amount']}")
+    print()
+
+def delete_expense():
+    view_expenses()
+    
+    if not expenses:
+        return
+    
+    try:
+        choice = int(input("Enter expense number to delete: "))
+        removed = expenses.pop(choice - 1)
+        print(f"Deleted: {removed['name']}\n")
+    except (ValueError, IndexError):
+        print("Invalid choice.\n")
+
+def total_expense():
+    total = sum(exp["amount"] for exp in expenses)
+    print(f"\nTotal Expenses: ₹{total}\n")
+
+def main():
+    while True:
+        print("1. Add Expense")
+        print("2. View Expenses")
+        print("3. Delete Expense")
+        print("4. View Total Expenses")
+        print("5. Exit")
+
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            add_expense()
+        elif choice == "2":
+            view_expenses()
+        elif choice == "3":
+            delete_expense()
+        elif choice == "4":
+            total_expense()
+        elif choice == "5":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid option\n")
+
+if __name__ == "__main__":
+    main()

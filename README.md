@@ -4,3 +4,4 @@ project and task complete during the internship
 Task 7: Create a Simple Expense Tracker
 
 Task 8: Develop a Simple Quiz Application
+# Thank You TECHNOHACKS SOLUTION 
